@@ -33,6 +33,8 @@ app.post("/servidor/upload", upload.single("file"), function (req, res) {
 app.use("/servidor/auth", authRoutes);
 app.use("/servidor/users", userRoutes);
 app.use("/servidor/posts", postRoutes);
+let cors = require("cors");
+app.use(cors());
 
 app.listen(8800, () => {
   console.log("Connected!");
