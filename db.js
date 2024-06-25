@@ -1,8 +1,8 @@
 import mysql from 'mysql'
 
 export const db = mysql.createConnection({
-    host: 'bsfxqrjkxyu3dmhzc81k-mysql.services.clever-cloud.com',
-    user: 'u4s61sbccdpxadwq',
-    password:'u4s61sbccdpxadwq',
-    database: 'bsfxqrjkxyu3dmhzc81k'
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASS,
+    database:process.env.DB_DATABASE
 })
