@@ -1,8 +1,8 @@
 import mysql from 'mysql'
 
 export const db = mysql.createConnection({
-    host: 'sql.freedb.tech',
-    user: 'freedb_jose_cruz',
-    password:'#D2AVarNqQ#SZb*',
-    database: 'freedb_blog_cruz'
+    host: 'bsfxqrjkxyu3dmhzc81k-mysql.services.clever-cloud.com',
+    user: 'u4s61sbccdpxadwq',
+    password:'u4s61sbccdpxadwq',
+    database: 'bsfxqrjkxyu3dmhzc81k'
 })
