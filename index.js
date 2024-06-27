@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "https://oxefalublog.netlify.app/upload");
+    cb(null, "https://oxefalublog.netlify.app/public/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
