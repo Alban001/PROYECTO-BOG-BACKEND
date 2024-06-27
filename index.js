@@ -7,7 +7,10 @@ import multer from "multer";
 import cors from 'cors'
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://oxefalublog.netlify.app', // replace with your Netlify app URL
+  optionsSuccessStatus: 200
+}));
 app.use(express.json());
 app.use(cookieParser());
 
