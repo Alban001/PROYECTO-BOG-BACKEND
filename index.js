@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./upload");
+    cb(null, "/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -26,9 +26,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/upload", upload.single("file"), function (req, res) {
+app.post("/api/upload", upload.single("file"), function (req, res) {
   const file = req.file;
   res.status(200).json(file.filename);
+  console.log("image uploaded succesfully")
 });
 
 const filePath = file.path;
@@ -41,9 +42,9 @@ const filePath = file.path;
   });
 
 
-app.use("/servidor/auth", authRoutes);
-app.use("/servidor/users", userRoutes);
-app.use("/servidor/posts", postRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 
 app.listen(8800, () => {
