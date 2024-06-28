@@ -26,10 +26,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/servidor/upload", upload.single("file"), function (req, res) {
+app.post("/upload", upload.single("file"), function (req, res) {
   const file = req.file;
   res.status(200).json(file.filename);
 });
+
+const filePath = file.path;
+
+  // Insert file path into database
+  const query = 'INSERT INTO posts (img) VALUES (?)';
+  db.query(query, [filePath], (err, result) => {
+    if (err) throw err;
+    res.send({ message: 'Image uploaded and path stored in database.', file: file });
+  });
+
 
 app.use("/servidor/auth", authRoutes);
 app.use("/servidor/users", userRoutes);
