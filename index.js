@@ -32,14 +32,6 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
   console.log("image uploaded succesfully")
 });
 
-const filePath = file.path;
-
-  // Insert file path into database
-  const query = 'INSERT INTO posts (img) VALUES (?)';
-  db.query(query, [filePath], (err, result) => {
-    if (err) throw err;
-    res.send({ message: 'Image uploaded and path stored in database.', file: file });
-  });
 
 
 app.use("/api/auth", authRoutes);
