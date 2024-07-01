@@ -7,10 +7,7 @@ import multer from "multer";
 import cors from 'cors'
 
 const app = express();
-app.use(cors({
-  origin: 'https://oxefalublog.netlify.app', // replace with your Netlify app URL
-  optionsSuccessStatus: 200
-}));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -36,7 +33,7 @@ app.post("/servidor/upload", upload.single("file"), function (req, res) {
 
 app.use("/servidor/auth", authRoutes);
 app.use("/servidor/users", userRoutes);
-app.use("/servidor/posts", postRoutes);
+  app.use("/servidor/posts", postRoutes);
 
 
 app.listen(8800, () => {
